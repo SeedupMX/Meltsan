@@ -3,7 +3,10 @@
 <head>
 
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="SemiColonWeb" />
+	<meta name="author" content="Seedup" />
+
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
 
     <!-- Stylesheets
     ============================================= -->
@@ -14,7 +17,7 @@
     <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
     <link rel="stylesheet" href="css/animate.css" type="text/css" />
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
-
+    <link rel="stylesheet" href="css/colors.css" type="text/css" />
     <link rel="stylesheet" href="css/responsive.css" type="text/css" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <!--[if lt IE 9]>
@@ -28,7 +31,7 @@
 
     <!-- Document Title
     ============================================= -->
-	<title>Home - One Page Layout | Canvas</title>
+	<title>Meltsan Solutions</title>
 
 </head>
 
@@ -44,41 +47,23 @@
 
             <div class="swiper-container swiper-parent">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide dark" style="background-image: url('images/slider/swiper/1.jpg');">
-                        <div class="container clearfix">
-                            <div class="slider-caption slider-caption-center">
-                                <h2 data-caption-animate="fadeInUp">Welcome to Canvas</h2>
-                                <p data-caption-animate="fadeInUp" data-caption-delay="200">Create just what you need for your Perfect Website. Choose from a wide range of Elements &amp; simply put them on our Canvas.</p>
-                            </div>
-                        </div>
-                    </div>
                     <div class="swiper-slide dark">
                         <div class="container clearfix">
                             <div class="slider-caption slider-caption-center">
-                                <h2 data-caption-animate="fadeInUp">Beautifully Flexible</h2>
-                                <p data-caption-animate="fadeInUp" data-caption-delay="200">Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Powerful Layout with Responsive functionality that can be adapted to any screen size.</p>
+                                <h2 data-caption-animate="fadeInUp">Meltsan Solutions</h2>
+                                <p data-caption-animate="fadeInUp" data-caption-delay="200">Procesos & soluciones de TI que te ayudan a tomar decisiones inteligentes</p>
                             </div>
                         </div>
                         <div class="video-wrap">
                             <video poster="images/videos/explore-poster.jpg" preload="auto" loop autoplay muted>
-                                <source src='images/videos/explore.mp4' type='video/mp4' />
-                                <source src='images/videos/explore.webm' type='video/webm' />
+                                <source src='images/videos/meltsan.mp4' type='video/mp4' />
+                                <!-- <source src='images/videos/explore.webm' type='video/webm' /> -->
                             </video>
                             <div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
                         </div>
                     </div>
-                    <div class="swiper-slide" style="background-image: url('images/slider/swiper/3.jpg'); background-position: center top;">
-                        <div class="container clearfix">
-                            <div class="slider-caption">
-                                <h2 data-caption-animate="fadeInUp">Great Performance</h2>
-                                <p data-caption-animate="fadeInUp" data-caption-delay="200">You'll be surprised to see the Final Results of your Creation &amp; would crave for more.</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div id="slider-arrow-left"><i class="icon-angle-left"></i></div>
-                <div id="slider-arrow-right"><i class="icon-angle-right"></i></div>
-                <div id="slide-number"><div id="slide-number-current"></div><span>/</span><div id="slide-number-total"></div></div>
+                
             </div>
 
             <script>
@@ -137,18 +122,6 @@
                         }
                     });
 
-                    $('#slider-arrow-left').on('click', function(e){
-                        e.preventDefault();
-                        swiperSlider.swipePrev();
-                    });
-
-                    $('#slider-arrow-right').on('click', function(e){
-                        e.preventDefault();
-                        swiperSlider.swipeNext();
-                    });
-
-                    $('#slide-number-current').html(swiperSlider.activeIndex + 1);
-                    $('#slide-number-total').html(swiperSlider.slides.length);
                 });
             </script>
 
@@ -176,15 +149,13 @@
                     <nav id="primary-menu">
 
                         <ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1500">
-                            <li><a href="#" data-href="#home"><div>Home</div></a></li>
-                            <li><a href="#" data-href="#section-about"><div>About</div></a></li>
-                            <li><a href="#" data-href="#section-work"><div>Work</div></a></li>
-                            <li><a href="#" data-href="#section-team"><div>Team</div></a></li>
-                            <li><a href="#" data-href="#section-services"><div>Services</div></a></li>
-                            <li><a href="#" data-href="#section-pricing"><div>Pricing</div></a></li>
-                            <li><a href="blog.html"><div>Blog</div></a></li>
-                            <li><a href="#" data-href="#section-testimonials" data-offset="60"><div>Testimonials</div></a></li>
-                            <li><a href="#" data-href="#section-contact"><div>Contact</div></a></li>
+                            <li><a href="#" data-href="#home"><div>Inicio</div></a></li>
+                            <li><a href="#" data-href="#section-about"><div>Acerca</div></a></li>
+                            <li><a href="#" data-href="#section-work"><div>Servicios</div></a></li>
+                            <li><a href="#" data-href="#section-team"><div>Productos</div></a></li>
+                            <li><a href="#" data-href="#section-services"><div>Modelos de entrega</div></a></li>
+                            <li><a href="#" data-href="#section-pricing"><div>Stack Tecnológico</div></a></li>
+                            <li><a href="#" data-href="#section-contact"><div>Contacto</div></a></li>
                         </ul>
 
                         <!-- Top Search
@@ -216,696 +187,160 @@
 
                     <div class="container clearfix">
 
-                        <div class="heading-block center">
-                            <h2>We are <span>Canvas</span></h2>
-                            <span>One of the most Versatile Theme on Themeforest</span>
-                        </div>
+                        <div class="col_full">
 
-                        <div class="col_one_third nobottommargin">
-                            <div class="feature-box media-box">
-                                <div class="fbox-media">
-                                    <img src="images/services/1.jpg" alt="Why choose Us?">
-                                </div>
-                                <div class="fbox-desc">
-                                    <h3>Why choose Us.<span class="subtitle">Because we are Reliable.</span></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi rem, facilis nobis voluptatum est voluptatem accusamus molestiae eaque perspiciatis mollitia.</p>
+                            <div class="heading-block center nobottomborder">
+                                <h2>Acerca de <span>Meltsan</span></h2>
+                                <span>Somos una empresa enfocada a agregar valor a los procesos de negocio de las organizaciones a través de soluciones de TI.</span>
+                            </div>
+
+                            <div class="fslider" data-pagi="false" data-animation="fade">
+                                <div class="flexslider">
+                                    <div class="slider-wrap">
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b1.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b2.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b3.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b4.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b5.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b6.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b7.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b8.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b9.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b10.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b11.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b12.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b13.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b14.png" alt="About Image"></a></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col_one_third nobottommargin">
-                            <div class="feature-box media-box">
-                                <div class="fbox-media">
-                                    <img src="images/services/2.jpg" alt="Why choose Us?">
-                                </div>
-                                <div class="fbox-desc">
-                                    <h3>Our Mission.<span class="subtitle">To Redefine your Brand.</span></h3>
-                                    <p>Quos, non, esse eligendi ab accusantium voluptatem. Maxime eligendi beatae, atque tempora ullam. Vitae delectus quia, consequuntur rerum molestias quo.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col_one_third nobottommargin col_last">
-                            <div class="feature-box media-box">
-                                <div class="fbox-media">
-                                    <img src="images/services/3.jpg" alt="Why choose Us?">
-                                </div>
-                                <div class="fbox-desc">
-                                    <h3>What we Do.<span class="subtitle">Make our Customers Happy.</span></h3>
-                                    <p>Porro repellat vero sapiente amet vitae quibusdam necessitatibus consectetur, labore totam. Accusamus perspiciatis asperiores labore esse ab accusantium ea modi ut.</p>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <div class="clear"></div>
 
                     </div>
 
-                    <div class="section dark parallax nobottommargin" style="padding: 80px 0;background-image: url('images/parallax/1.jpg');" data-stellar-background-ratio="0.3">
-
-                        <div class="container clearfix">
-
-                            <div class="col_one_fourth nobottommargin center" data-animate="bounceIn">
-                                <i class="i-plain i-xlarge divcenter nobottommargin icon-code"></i>
-                                <div class="counter counter-lined"><span data-from="100" data-to="846" data-refresh-interval="50" data-speed="2000"></span>K+</div>
-                                <h5>Lines of Codes</h5>
-                            </div>
-
-                            <div class="col_one_fourth nobottommargin center" data-animate="bounceIn" data-delay="200">
-                                <i class="i-plain i-xlarge divcenter nobottommargin icon-magic"></i>
-                                <div class="counter counter-lined"><span data-from="3000" data-to="15360" data-refresh-interval="100" data-speed="2500"></span>+</div>
-                                <h5>KBs of HTML Files</h5>
-                            </div>
-
-                            <div class="col_one_fourth nobottommargin center" data-animate="bounceIn" data-delay="400">
-                                <i class="i-plain i-xlarge divcenter nobottommargin icon-file-text"></i>
-                                <div class="counter counter-lined"><span data-from="10" data-to="386" data-refresh-interval="25" data-speed="3500"></span>*</div>
-                                <h5>No. of Templates</h5>
-                            </div>
-
-                            <div class="col_one_fourth nobottommargin center col_last" data-animate="bounceIn" data-delay="600">
-                                <i class="i-plain i-xlarge divcenter nobottommargin icon-time"></i>
-                                <div class="counter counter-lined"><span data-from="60" data-to="1200" data-refresh-interval="30" data-speed="2700"></span>+</div>
-                                <h5>Hours of Coding</h5>
-                            </div>
-
-                        </div>
-
-                    </div>
-
                 </section>
 
-                <section id="section-work" class="page-section topmargin-lg">
-
-                    <div class="heading-block center">
-                        <h2>Our Works</h2>
-                        <span>Some of the Awesome Projects we've worked on.</span>
-                    </div>
-
-                    <div class="container clearfix center">
-
-                        <!-- Portfolio Items
-                        ============================================= -->
-                        <div id="portfolio" class="portfolio-nomargin clearfix">
-
-                            <article class="portfolio-item pf-media pf-icons">
-                                <div class="portfolio-image">
-                                    <a href="portfolio-single.html">
-                                        <img src="images/portfolio/4/1.jpg" alt="Open Imagination">
-                                    </a>
-                                    <div class="portfolio-overlay">
-                                        <a href="images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                                        <a href="portfolio-single.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                                    </div>
-                                </div>
-                                <div class="portfolio-desc">
-                                    <h3><a href="portfolio-single.html">Open Imagination</a></h3>
-                                    <span><a href="#">Media</a>, <a href="#">Icons</a></span>
-                                </div>
-                            </article>
-
-                            <article class="portfolio-item pf-illustrations">
-                                <div class="portfolio-image">
-                                    <a href="portfolio-single.html">
-                                        <img src="images/portfolio/4/2.jpg" alt="Locked Steel Gate">
-                                    </a>
-                                    <div class="portfolio-overlay">
-                                        <a href="images/portfolio/full/2.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                                        <a href="portfolio-single.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                                    </div>
-                                </div>
-                                <div class="portfolio-desc">
-                                    <h3><a href="portfolio-single.html">Locked Steel Gate</a></h3>
-                                    <span><a href="#">Illustrations</a></span>
-                                </div>
-                            </article>
-
-                            <article class="portfolio-item pf-graphics pf-uielements">
-                                <div class="portfolio-image">
-                                    <a href="#">
-                                        <img src="images/portfolio/4/3.jpg" alt="Mac Sunglasses">
-                                    </a>
-                                    <div class="portfolio-overlay">
-                                        <a href="http://vimeo.com/89396394" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
-                                        <a href="portfolio-single-video.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                                    </div>
-                                </div>
-                                <div class="portfolio-desc">
-                                    <h3><a href="portfolio-single-video.html">Mac Sunglasses</a></h3>
-                                    <span><a href="#">Graphics</a>, <a href="#">UI Elements</a></span>
-                                </div>
-                            </article>
-
-                            <article class="portfolio-item pf-icons pf-illustrations">
-                                <div class="portfolio-image">
-                                    <a href="#">
-                                        <img src="images/portfolio/4/4.jpg" alt="Mac Sunglasses">
-                                    </a>
-                                    <div class="portfolio-overlay" data-lightbox="gallery">
-                                        <a href="images/portfolio/full/4.jpg" class="left-icon" data-lightbox="gallery-item"><i class="icon-line-stack-2"></i></a>
-                                        <a href="images/portfolio/full/4-1.jpg" class="hidden" data-lightbox="gallery-item"></a>
-                                        <a href="portfolio-single-gallery.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                                    </div>
-                                </div>
-                                <div class="portfolio-desc">
-                                    <h3><a href="portfolio-single-gallery.html">Morning Dew</a></h3>
-                                    <span><a href="#"><a href="#">Icons</a>, <a href="#">Illustrations</a></span>
-                                </div>
-                            </article>
-
-                            <article class="portfolio-item pf-uielements pf-media">
-                                <div class="portfolio-image">
-                                    <a href="portfolio-single.html">
-                                        <img src="images/portfolio/4/5.jpg" alt="Console Activity">
-                                    </a>
-                                    <div class="portfolio-overlay">
-                                        <a href="images/portfolio/full/5.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                                        <a href="portfolio-single.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                                    </div>
-                                </div>
-                                <div class="portfolio-desc">
-                                    <h3><a href="portfolio-single.html">Console Activity</a></h3>
-                                    <span><a href="#">UI Elements</a>, <a href="#">Media</a></span>
-                                </div>
-                            </article>
-
-                            <article class="portfolio-item pf-graphics pf-illustrations">
-                                <div class="portfolio-image">
-                                    <a href="#">
-                                        <img src="images/portfolio/4/6.jpg" alt="Mac Sunglasses">
-                                    </a>
-                                    <div class="portfolio-overlay" data-lightbox="gallery">
-                                        <a href="images/portfolio/full/6.jpg" class="left-icon" data-lightbox="gallery-item"><i class="icon-line-stack-2"></i></a>
-                                        <a href="images/portfolio/full/6-1.jpg" class="hidden" data-lightbox="gallery-item"></a>
-                                        <a href="images/portfolio/full/6-2.jpg" class="hidden" data-lightbox="gallery-item"></a>
-                                        <a href="images/portfolio/full/6-3.jpg" class="hidden" data-lightbox="gallery-item"></a>
-                                        <a href="portfolio-single-gallery.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                                    </div>
-                                </div>
-                                <div class="portfolio-desc">
-                                    <h3><a href="portfolio-single-gallery.html">Shake It!</a></h3>
-                                    <span><a href="#">Illustrations</a>, <a href="#">Graphics</a></span>
-                                </div>
-                            </article>
-
-                            <article class="portfolio-item pf-uielements pf-icons">
-                                <div class="portfolio-image">
-                                    <a href="portfolio-single-video.html">
-                                        <img src="images/portfolio/4/7.jpg" alt="Backpack Contents">
-                                    </a>
-                                    <div class="portfolio-overlay">
-                                        <a href="http://www.youtube.com/watch?v=kuceVNBTJio" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
-                                        <a href="portfolio-single-video.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                                    </div>
-                                </div>
-                                <div class="portfolio-desc">
-                                    <h3><a href="portfolio-single-video.html">Backpack Contents</a></h3>
-                                    <span><a href="#">UI Elements</a>, <a href="#">Icons</a></span>
-                                </div>
-                            </article>
-
-                            <article class="portfolio-item pf-graphics">
-                                <div class="portfolio-image">
-                                    <a href="portfolio-single.html">
-                                        <img src="images/portfolio/4/8.jpg" alt="Sunset Bulb Glow">
-                                    </a>
-                                    <div class="portfolio-overlay">
-                                        <a href="images/portfolio/full/8.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                                        <a href="portfolio-single.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                                    </div>
-                                </div>
-                                <div class="portfolio-desc">
-                                    <h3><a href="portfolio-single.html">Sunset Bulb Glow</a></h3>
-                                    <span><a href="#">Graphics</a></span>
-                                </div>
-                            </article>
-
-                            <article class="portfolio-item pf-illustrations pf-icons">
-                                <div class="portfolio-image">
-                                    <a href="#">
-                                        <img src="images/portfolio/4/9.jpg" alt="Mac Sunglasses">
-                                    </a>
-                                    <div class="portfolio-overlay" data-lightbox="gallery">
-                                        <a href="images/portfolio/full/9.jpg" class="left-icon" data-lightbox="gallery-item"><i class="icon-line-stack-2"></i></a>
-                                        <a href="images/portfolio/full/9-1.jpg" class="hidden" data-lightbox="gallery-item"></a>
-                                        <a href="images/portfolio/full/9-2.jpg" class="hidden" data-lightbox="gallery-item"></a>
-                                        <a href="portfolio-single-gallery.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                                    </div>
-                                </div>
-                                <div class="portfolio-desc">
-                                    <h3><a href="portfolio-single.html">Bridge Side</a></h3>
-                                    <span><a href="#">Illustrations</a>, <a href="#">Icons</a></span>
-                                </div>
-                            </article>
-
-                            <article class="portfolio-item pf-graphics pf-media pf-uielements">
-                                <div class="portfolio-image">
-                                    <a href="portfolio-single-video.html">
-                                        <img src="images/portfolio/4/10.jpg" alt="Study Table">
-                                    </a>
-                                    <div class="portfolio-overlay">
-                                        <a href="http://vimeo.com/91973305" class="left-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
-                                        <a href="portfolio-single-video.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                                    </div>
-                                </div>
-                                <div class="portfolio-desc">
-                                    <h3><a href="portfolio-single-video.html">Study Table</a></h3>
-                                    <span><a href="#">Graphics</a>, <a href="#">Media</a></span>
-                                </div>
-                            </article>
-
-                            <article class="portfolio-item pf-media pf-icons">
-                                <div class="portfolio-image">
-                                    <a href="portfolio-single.html">
-                                        <img src="images/portfolio/4/11.jpg" alt="Workspace Stuff">
-                                    </a>
-                                    <div class="portfolio-overlay">
-                                        <a href="images/portfolio/full/11.jpg" class="left-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                                        <a href="portfolio-single.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                                    </div>
-                                </div>
-                                <div class="portfolio-desc">
-                                    <h3><a href="portfolio-single.html">Workspace Stuff</a></h3>
-                                    <span><a href="#">Media</a>, <a href="#">Icons</a></span>
-                                </div>
-                            </article>
-
-                            <article class="portfolio-item pf-illustrations pf-graphics">
-                                <div class="portfolio-image">
-                                    <a href="#">
-                                        <img src="images/portfolio/4/12.jpg" alt="Mac Sunglasses">
-                                    </a>
-                                    <div class="portfolio-overlay" data-lightbox="gallery">
-                                        <a href="images/portfolio/full/12.jpg" class="left-icon" data-lightbox="gallery-item"><i class="icon-line-stack-2"></i></a>
-                                        <a href="images/portfolio/full/12-1.jpg" class="hidden" data-lightbox="gallery-item"></a>
-                                        <a href="portfolio-single-gallery.html" class="right-icon"><i class="icon-line-ellipsis"></i></a>
-                                    </div>
-                                </div>
-                                <div class="portfolio-desc">
-                                    <h3><a href="portfolio-single-gallery.html">Fixed Aperture</a></h3>
-                                    <span><a href="#">Illustrations</a>, <a href="#">Graphics</a></span>
-                                </div>
-                            </article>
-
-                        </div><!-- #portfolio end -->
-
-                    </div>
-
-                </section>
-
-                <section id="section-team" class="page-section topmargin-lg">
-
-                    <div class="heading-block center">
-                        <h2>Our Team</h2>
-                        <span>People who have contributed enormously to our Company.</span>
-                    </div>
+                <section id="section-services" class="page-section section parallax dark" style="background-image: url('images/meltsan-img/parallax2.jpg'); padding: 50px 0;" data-stellar-background-ratio="0.3">
 
                     <div class="container clearfix">
+                        <div class="heading-block center bottommargin-lg">
+                            <h2>Productos</h2>
+                            <!-- <span>List of some features included in Canvas.</span> -->
+                        </div>
 
-                        <div class="col-md-6 bottommargin">
+                    
 
-                            <div class="team team-list clearfix">
-                                <div class="team-image">
-                                    <img src="images/team/3.jpg" alt="John Doe">
-                                </div>
-                                <div class="team-desc">
-                                    <div class="team-title"><h4>John Doe</h4><span>CEO</span></div>
-                                    <div class="team-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat assumenda similique unde mollitia.</div>
-                                    <a href="#" class="social-icon si-rounded si-small si-facebook">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-twitter">
-                                        <i class="icon-twitter"></i>
-                                        <i class="icon-twitter"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-gplus">
-                                        <i class="icon-gplus"></i>
-                                        <i class="icon-gplus"></i>
-                                    </a>
-                                </div>
+                        <div class="col_one_third" >
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
+                                <img src="images/meltsan-img/producto1.png" class="responsive-img" width="80%">
+                                <h3 style="color:white;">Antimoney Laundering</h3>
+                                <p style="color:white;">Provee una solución para cumplir con las disposiciones actuales de las legislaciones de varias industrias/ sectores en materia de prevención de lavado de dinero, particularmente, en lo referente a contar con un sistema automatizado para la detección y administración de operaciones sospechosas.</p>
                             </div>
-
                         </div>
 
-                        <div class="col-md-6 bottommargin">
-
-                            <div class="team team-list clearfix">
-                                <div class="team-image">
-                                    <img src="images/team/4.jpg" alt="Nix Maxwell">
-                                </div>
-                                <div class="team-desc">
-                                    <div class="team-title"><h4>Nix Maxwell</h4><span>Co-Founder</span></div>
-                                    <div class="team-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat assumenda similique unde mollitia.</div>
-                                    <a href="#" class="social-icon si-rounded si-small si-forrst">
-                                        <i class="icon-forrst"></i>
-                                        <i class="icon-forrst"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-skype">
-                                        <i class="icon-skype"></i>
-                                        <i class="icon-skype"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-flickr">
-                                        <i class="icon-flickr"></i>
-                                        <i class="icon-flickr"></i>
-                                    </a>
-                                </div>
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
+                                <img src="images/meltsan-img/producto1.png" class="responsive-img" width="80%">
+                                <h3 style="color:white;">Sistema Flex Beneficios</h3>
+                                <p style="color:white;">Uno de los valores más importantes en la vida es la familia, por lo que debemos de contar con un programa de protección adecuado tanto en sustento como en integridad física.</p>
                             </div>
-
                         </div>
 
-                        <div class="clear"></div>
-
-                        <div class="col-md-6 bottommargin">
-
-                            <div class="team team-list clearfix">
-                                <div class="team-image">
-                                    <img src="images/team/2.jpg" alt="Josh Clark">
-                                </div>
-                                <div class="team-desc">
-                                    <div class="team-title"><h4>Josh Clark</h4><span>Developer</span></div>
-                                    <div class="team-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat assumenda similique unde mollitia.</div>
-                                    <a href="#" class="social-icon si-rounded si-small si-dribbble">
-                                        <i class="icon-dribbble"></i>
-                                        <i class="icon-dribbble"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-twitter">
-                                        <i class="icon-twitter"></i>
-                                        <i class="icon-twitter"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-github">
-                                        <i class="icon-github"></i>
-                                        <i class="icon-github"></i>
-                                    </a>
-                                </div>
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
+                                <img src="images/meltsan-img/producto1.png" class="responsive-img" width="80%">
+                                <h3 style="color:white;">Staffing</h3>
+                                <p style="color:white;">En el área de servicios de consultoría, se tiene un grupo de expertos en diferentes tecnologías y se cuenta el siguiente catálogo de perfiles: Desarrollador Jr, Desarrollador SR, Software Architect, Testers, Dcumentadores, Project Leader, Business Analyst, Perfiles BI (ETLs, Data mining) y PMS</p>
                             </div>
-
-                        </div>
-
-                        <div class="col-md-6 bottommargin">
-
-                            <div class="team team-list clearfix">
-                                <div class="team-image">
-                                    <img src="images/team/8.jpg" alt="Mary Jane">
-                                </div>
-                                <div class="team-desc">
-                                    <div class="team-title"><h4>Mary Jane</h4><span>Support</span></div>
-                                    <div class="team-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat assumenda similique unde mollitia.</div>
-                                    <a href="#" class="social-icon si-rounded si-small si-facebook">
-                                        <i class="icon-facebook"></i>
-                                        <i class="icon-facebook"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-linkedin">
-                                        <i class="icon-linkedin"></i>
-                                        <i class="icon-linkedin"></i>
-                                    </a>
-                                    <a href="#" class="social-icon si-rounded si-small si-twitter">
-                                        <i class="icon-twitter"></i>
-                                        <i class="icon-twitter"></i>
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="clear"></div>
-
-                        <div class="fancy-title title-border title-center topmargin-sm">
-                            <h4>Skills we are Perfect in</h4>
-                        </div>
-
-                        <div class="col_one_fourth nobottommargin center">
-                            <div class="rounded-skill" data-color="#D01C1C" data-size="150" data-percent="90" data-width="2" data-animate="3000">
-                                <div class="counter counter-inherit"><span data-from="1" data-to="90" data-refresh-interval="50" data-speed="3000"></span>%</div>
-                            </div>
-                            <h5>HTML5</h5>
-                        </div>
-
-                        <div class="col_one_fourth nobottommargin center">
-                            <div class="rounded-skill" data-color="#1770A4" data-size="150" data-percent="75" data-width="2" data-animate="3000">
-                                <div class="counter counter-inherit"><span data-from="1" data-to="75" data-refresh-interval="50" data-speed="3000"></span>%</div>
-                            </div>
-                            <h5>CSS3</h5>
-                        </div>
-
-                        <div class="col_one_fourth nobottommargin center">
-                            <div class="rounded-skill" data-color="#6A89AA" data-size="150" data-percent="85" data-width="2" data-animate="3000">
-                                <div class="counter counter-inherit"><span data-from="1" data-to="85" data-refresh-interval="50" data-speed="3000"></span>%</div>
-                            </div>
-                            <h5>PHP</h5>
-                        </div>
-
-                        <div class="col_one_fourth nobottommargin center col_last">
-                            <div class="rounded-skill" data-color="#248673" data-size="150" data-percent="80" data-width="2" data-animate="3000">
-                                <div class="counter counter-inherit"><span data-from="1" data-to="80" data-refresh-interval="50" data-speed="3000"></span>%</div>
-                            </div>
-                            <h5>jQuery</h5>
-                        </div>
-
-                    </div>
-
-                    <div class="section parallax" style="background-image: url('images/parallax/3.jpg'); padding: 100px 0;" data-stellar-background-ratio="0.3">
-                        <div class="heading-block center nobottomborder nobottommargin">
-                            <h2>"Everything is designed, but some things are designed well."</h2>
                         </div>
                     </div>
 
                 </section>
 
-                <section id="section-services" class="page-section topmargin-lg">
-
-                    <div class="heading-block center bottommargin-lg">
-                        <h2>Services</h2>
-                        <span>List of some features included in Canvas.</span>
-                    </div>
+                <section id="section-pricing" class="page-section section parallax dark" style="background-image: url('images/meltsan-img/parallax3.jpg'); padding: 50px 0;" data-stellar-background-ratio="0.3">
 
                     <div class="container clearfix">
+                        
+                        <div class="heading-block center bottommargin-lg">
+                            <h2>Servicios</h2>
+                            <!-- <span>List of some features included in Canvas.</span> -->
+                        </div>
 
                         <div class="col_one_third">
                             <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
                                 <div class="fbox-icon">
-                                    <a href="#"><i class="icon-phone2"></i></a>
+                                    <a href="#"><img src="images/meltsan-img/servicio1.png" class="responsive-img" width="50%"></i></a>
                                 </div>
-                                <h3>Responsive Layout</h3>
-                                <p>Powerful Layout with Responsive functionality that can be adapted to any screen size.</p>
+                                <h3>Desarrollo de aplicaciones</h3>
+                                <p style="color:white;">•    Desarrollos acelerados<br>
+•    Desarrollo de soluciones e-business<br>
+•    Aplicaciones empresariales<br>
+•    Nos apegamos a modelos de desarrollo de software agiles</p>
                             </div>
                         </div>
-
                         <div class="col_one_third">
-                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn" data-delay="200">
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
                                 <div class="fbox-icon">
-                                    <a href="#"><i class="icon-eye"></i></a>
+                                    <a href="#"><img src="images/meltsan-img/servicio2.png" class="responsive-img" width="50%"></i></a>
                                 </div>
-                                <h3>Retina Ready Graphics</h3>
-                                <p>Looks beautiful &amp; ultra-sharp on Retina Displays with Retina Icons, Fonts &amp; Images.</p>
+                                <h3>Integración de aplicaciones</h3>
+                                <p style="color:white;">Meltsan solutions integra aplicaciones basadas en distintas plataformas operativas y aplicativas, haciendo uso de middlewares orientados a intercambio de mensajes y herramientas de flujo de trabajo. Conocemos y somos expertos en varias tecnologías de integración.</p>
                             </div>
                         </div>
-
-                        <div class="col_one_third col_last">
-                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn" data-delay="400">
-                                <div class="fbox-icon">
-                                    <a href="#"><i class="icon-star2"></i></a>
-                                </div>
-                                <h3>Powerful Performance</h3>
-                                <p>Optimized code that are completely customizable and deliver unmatched fast performance.</p>
-                            </div>
-                        </div>
-
-                        <div class="clear"></div>
-
                         <div class="col_one_third">
-                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn" data-delay="600">
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
                                 <div class="fbox-icon">
-                                    <a href="#"><i class="icon-video"></i></a>
+                                    <a href="#"><img src="images/meltsan-img/servicio3.png" class="responsive-img" width="50%"></i></a>
                                 </div>
-                                <h3>HTML5 Video</h3>
-                                <p>Canvas provides support for Native HTML5 Videos that can be added to a Full Width Background.</p>
+                                <h3>Internet of Things (IoT)</h3>
+                                <p style="color:white;">
+•    Proximity marketing<br>
+•    iBeacons<br>
+•    Home Automation<br>
+•    Real world context apps<br>
+•    Indoor location apps<br>
+•    Ux – user experience<br>
+•    Estrategias de marketing digital</p>
                             </div>
                         </div>
-
                         <div class="col_one_third">
-                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn" data-delay="800">
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
                                 <div class="fbox-icon">
-                                    <a href="#"><i class="icon-params"></i></a>
+                                    <a href="#"><img src="images/meltsan-img/servicio4.png" class="responsive-img" width="50%"></i></a>
                                 </div>
-                                <h3>Parallax Support</h3>
-                                <p>Display your Content attractively using Parallax Sections that have unlimited customizable areas.</p>
+                                <h3>Data management & Business intelligence</h3>
+                                <p style="color:white;">Estudiamos cada elemento almacenado en las bases de datos Operativas con la finalidad de generar valor en cada dato para poder proyectar nuevos negocios, conocimiento del cliente, incremento de ventas, tendencias comerciales y toma de decisiones. Todo un enfoque a generar una mejor experiencia cliente final.</p>
                             </div>
                         </div>
-
-                        <div class="col_one_third col_last">
-                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn" data-delay="1000">
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
                                 <div class="fbox-icon">
-                                    <a href="#"><i class="icon-fire"></i></a>
+                                    <a href="#"><img src="images/meltsan-img/servicio5.png" class="responsive-img" width="50%"></i></a>
                                 </div>
-                                <h3>Endless Possibilities</h3>
-                                <p>Complete control on each &amp; every element that provides endless customization possibilities.</p>
+                                <h3>Cloud & Mobile solutions</h3>
+                                <p style="color:white;"> •    Aplicaciones móviles iOS, Android y Windows pone.(nativas y cross platform)<br>
+•    Uso de servicios en la nube<br>
+•    Integración certificada de paypal</p>
                             </div>
                         </div>
-
-                        <div class="clear"></div>
-
-                        <div class="col_one_third nobottommargin">
-                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn" data-delay="1200">
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
                                 <div class="fbox-icon">
-                                    <a href="#"><i class="icon-bulb"></i></a>
+                                    <a href="#"><img src="images/meltsan-img/servicio6.png" class="responsive-img" width="50%"></i></a>
                                 </div>
-                                <h3>Light &amp; Dark Color Schemes</h3>
-                                <p>Change your Website's Primary Scheme instantly by simply adding the dark class to the body.</p>
+                                <h3>Quality assurance</h3>
+                                <p style="color:white;">Se cuenta con un área de aseguramiento de la calidad del producto terminado. Meltsan solutions tiene su propio modelo de servicio para la disciplina de “software testing”, lo que garantiza el cumplimiento de aceptación por parte del cliente</p>
                             </div>
                         </div>
-
-                        <div class="col_one_third nobottommargin">
-                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn" data-delay="1400">
-                                <div class="fbox-icon">
-                                    <a href="#"><i class="icon-heart2"></i></a>
-                                </div>
-                                <h3>Boxed &amp; Wide Layouts</h3>
-                                <p>Stretch your Website to the Full Width or make it boxed to surprise your visitors.</p>
-                            </div>
-                        </div>
-
-                        <div class="col_one_third nobottommargin col_last">
-                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn" data-delay="1600">
-                                <div class="fbox-icon">
-                                    <a href="#"><i class="icon-note"></i></a>
-                                </div>
-                                <h3>Extensive Documentation</h3>
-                                <p>We have covered each &amp; everything in our Documentation including Videos &amp; Screenshots.</p>
-                            </div>
-                        </div>
-
-                        <div class="clear"></div>
-
-                    </div>
-
-                    <div class="divider divider-short divider-center topmargin-lg"><i class="icon-star3"></i></div>
 
                 </section>
 
-                <section id="section-pricing" class="page-section topmargin-lg">
 
-                    <div class="heading-block center">
-                        <h2>Pricing</h2>
-                        <span>We offer Flexible Pricing Options.</span>
-                    </div>
 
-                    <div class="container clearfix">
-
-                        <div class="pricing bottommargin clearfix">
-
-                            <div class="col-md-3" data-animate="fadeInLeft">
-
-                                <div class="pricing-box">
-                                    <div class="pricing-title">
-                                        <h3>Starter</h3>
-                                    </div>
-                                    <div class="pricing-price">
-                                        <span class="price-unit">&euro;</span>7<span class="price-tenure">/mo</span>
-                                    </div>
-                                    <div class="pricing-features">
-                                        <ul>
-                                            <li><strong>Full</strong> Access</li>
-                                            <li><i class="icon-code"></i> Source Files</li>
-                                            <li><strong>100</strong> User Accounts</li>
-                                            <li><strong>1 Year</strong> License</li>
-                                            <li>Phone &amp; Email Support</li>
-                                        </ul>
-                                    </div>
-                                    <div class="pricing-action">
-                                        <a href="#" class="btn btn-danger btn-block btn-lg">Sign Up</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-3" data-animate="fadeInDown"  data-delay="250">
-
-                                <div class="pricing-box best-price">
-                                    <div class="pricing-title">
-                                        <h3>Professional</h3>
-                                        <span>Most Popular</span>
-                                    </div>
-                                    <div class="pricing-price">
-                                        <span class="price-unit">&euro;</span>12<span class="price-tenure">/mo</span>
-                                    </div>
-                                    <div class="pricing-features">
-                                        <ul>
-                                            <li><strong>Full</strong> Access</li>
-                                            <li><i class="icon-code"></i> Source Files</li>
-                                            <li><strong>1000</strong> User Accounts</li>
-                                            <li><strong>2 Years</strong> License</li>
-                                            <li><i class="icon-star3"></i>
-                                            <i class="icon-star3"></i>
-                                            <i class="icon-star3"></i>
-                                            <i class="icon-star3"></i>
-                                            <i class="icon-star3"></i></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pricing-action">
-                                        <a href="#" class="btn btn-danger btn-block btn-lg bgcolor border-color">Sign Up</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-3" data-animate="fadeInUp" data-delay="500">
-
-                                <div class="pricing-box">
-                                    <div class="pricing-title">
-                                        <h3>Business</h3>
-                                    </div>
-                                    <div class="pricing-price">
-                                        <span class="price-unit">&euro;</span>19<span class="price-tenure">/mo</span>
-                                    </div>
-                                    <div class="pricing-features">
-                                        <ul>
-                                            <li><strong>Full</strong> Access</li>
-                                            <li><i class="icon-code"></i> Source Files</li>
-                                            <li><strong>500</strong> User Accounts</li>
-                                            <li><strong>3 Years</strong> License</li>
-                                            <li>Phone &amp; Email Support</li>
-                                        </ul>
-                                    </div>
-                                    <div class="pricing-action">
-                                        <a href="#" class="btn btn-danger btn-block btn-lg">Sign Up</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="col-md-3" data-animate="fadeInRight" data-delay="250">
-
-                                <div class="pricing-box">
-                                    <div class="pricing-title">
-                                        <h3>Enterprise</h3>
-                                    </div>
-                                    <div class="pricing-price">
-                                        <span class="price-unit">&euro;</span>29<span class="price-tenure">/mo</span>
-                                    </div>
-                                    <div class="pricing-features">
-                                        <ul>
-                                            <li><strong>Full</strong> Access</li>
-                                            <li><i class="icon-code"></i> Source Files</li>
-                                            <li><strong>1000</strong> User Accounts</li>
-                                            <li><strong>5 Years</strong> License</li>
-                                            <li>Phone &amp; Email Support</li>
-                                        </ul>
-                                    </div>
-                                    <div class="pricing-action">
-                                        <a href="#" class="btn btn-danger btn-block btn-lg">Sign Up</a>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-                <section id="section-testimonials" class="page-section section parallax dark" style="background-image: url('images/about/me-parallax.jpg'); padding: 200px 0;" data-stellar-background-ratio="0.3">
+                <section id="section-testimonials" class="page-section section parallax dark" style="background-image: url('images/meltsan-img/parallax1.jpg'); padding: 200px 0;" data-stellar-background-ratio="0.3">
 
                     <div class="container clearfix">
 

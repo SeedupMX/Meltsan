@@ -2,655 +2,1056 @@
 <html dir="ltr" lang="en-US">
 <head>
 
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="Seedup.mx" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Seedup" />
 
-	<!-- Stylesheets
-	============================================= -->
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+
+    <!-- Stylesheets
+    ============================================= -->
 	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-	<link rel="stylesheet" href="style.css" type="text/css" />
-	<link rel="stylesheet" href="css/dark.css" type="text/css" />
-	<link rel="stylesheet" href="css/font-icons.css" type="text/css" />
-	<link rel="stylesheet" href="css/animate.css" type="text/css" />
-	<link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
-	<link rel="stylesheet" href="css/colors.css" type="text/css" />
-	<link rel="stylesheet" href="css/responsive.css" type="text/css" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<!--[if lt IE 9]>
-		<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-	<![endif]-->
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="css/dark.css" type="text/css" />
+    <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+    <link rel="stylesheet" href="css/colors.css" type="text/css" />
+    <link rel="stylesheet" href="css/responsive.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!--[if lt IE 9]>
+    	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
 
-	<!-- External JavaScripts
-	============================================= -->
+    <!-- External JavaScripts
+    ============================================= -->
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/plugins.js"></script>
 
-	<!-- Document Title
-	============================================= -->
+    <!-- Document Title
+    ============================================= -->
 	<title>Meltsan Solutions</title>
 
 </head>
 
-<body class="stretched">
+<body class="stretched dark">
 
-	<!-- Document Wrapper
-	============================================= -->
-	<div id="wrapper" class="clearfix">
+    <!-- Document Wrapper
+    ============================================= -->
+    <div id="wrapper" class="clearfix">
 
-		<!-- Header
-		============================================= -->
-		<header id="header" class="transparent-header dark full-header no-sticky">
+        <div id="home" class="page-section" style="position:absolute;top:0;left:0;width:100%;height:200px;z-index:-2;"></div>
 
-			<div id="header-wrap">
+        <section id="slider" class="slider-parallax full-screen with-header swiper_wrapper clearfix">
 
-				<div class="container clearfix">
+            <div class="swiper-container swiper-parent">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide dark">
+                        <div class="container clearfix">
+                            <div class="slider-caption slider-caption-center">
+                                <h2 data-caption-animate="fadeInUp">Meltsan Solutions</h2>
+                                <p data-caption-animate="fadeInUp" data-caption-delay="200">SHARING KNOWLEDGE</p>
+                            </div>
+                        </div>
+                        <div class="video-wrap">
+                            <video poster="images/videos/explore-poster.jpg" preload="auto" loop autoplay muted>
+                                <source src='images/videos/meltsan.mp4' type='video/mp4' />
+                                <!-- <source src='images/videos/explore.webm' type='video/webm' /> -->
+                            </video>
+                            <div class="video-overlay" style="background-color: rgba(0,0,0,0.55);"></div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
 
-					<div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+            <script>
+                jQuery(document).ready(function($){
+                    var swiperSlider = new Swiper('.swiper-parent',{
+                        paginationClickable: false,
+                        slidesPerView: 1,
+                        grabCursor: true,
+                        onSwiperCreated: function(swiper){
+                            $('[data-caption-animate]').each(function(){
+                                var $toAnimateElement = $(this);
+                                var toAnimateDelay = $(this).attr('data-caption-delay');
+                                var toAnimateDelayTime = 0;
+                                if( toAnimateDelay ) { toAnimateDelayTime = Number( toAnimateDelay ) + 750; } else { toAnimateDelayTime = 750; }
+                                if( !$toAnimateElement.hasClass('animated') ) {
+                                    $toAnimateElement.addClass('not-animated');
+                                    var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+                                    setTimeout(function() {
+                                        $toAnimateElement.removeClass('not-animated').addClass( elementAnimation + ' animated');
+                                    }, toAnimateDelayTime);
+                                }
+                            });
+                        },
+                        onSlideChangeStart: function(swiper){
+                            $('#slide-number-current').html(swiper.activeIndex + 1);
+                            $('[data-caption-animate]').each(function(){
+                                var $toAnimateElement = $(this);
+                                var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+                                $toAnimateElement.removeClass('animated').removeClass(elementAnimation).addClass('not-animated');
+                            });
+                        },
+                        onSlideChangeEnd: function(swiper){
+                            $('#slider .swiper-slide').each(function(){
+                                if($(this).find('video').length > 0) { $(this).find('video').get(0).pause(); }
+                            });
+                            $('#slider .swiper-slide:not(".swiper-slide-active")').each(function(){
+                                if($(this).find('video').length > 0) {
+                                    if($(this).find('video').get(0).currentTime != 0 ) $(this).find('video').get(0).currentTime = 0;
+                                }
+                            });
+                            if( $('#slider .swiper-slide.swiper-slide-active').find('video').length > 0 ) { $('#slider .swiper-slide.swiper-slide-active').find('video').get(0).play(); }
 
-					<!-- Logo
-					============================================= -->
-					<div id="logo">
-						<a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="Canvas Logo"></a>
-						<a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
-					</div><!-- #logo end -->
+                            $('#slider .swiper-slide.swiper-slide-active [data-caption-animate]').each(function(){
+                                var $toAnimateElement = $(this);
+                                var toAnimateDelay = $(this).attr('data-caption-delay');
+                                var toAnimateDelayTime = 0;
+                                if( toAnimateDelay ) { toAnimateDelayTime = Number( toAnimateDelay ) + 300; } else { toAnimateDelayTime = 300; }
+                                if( !$toAnimateElement.hasClass('animated') ) {
+                                    $toAnimateElement.addClass('not-animated');
+                                    var elementAnimation = $toAnimateElement.attr('data-caption-animate');
+                                    setTimeout(function() {
+                                        $toAnimateElement.removeClass('not-animated').addClass( elementAnimation + ' animated');
+                                    }, toAnimateDelayTime);
+                                }
+                            });
+                        }
+                    });
 
-					<!-- Primary Navigation
-					============================================= -->
-					<nav id="primary-menu">
+                });
+            </script>
 
-						<ul>
-                            <li class="current"><a href="index.html"><div>Inicio</div></a></li>
-                            <li ><a href="about.html"><div>Nosotros</div></a></li>
-                            <li><a href="#"><div>Servicios</div></a>
-                                <ul>
-                                    <li class="current"><a  href="desarrollo-de-apps.html"><div><!-- <i class="icon-line-layout"></i> -->Desarrollo de apps</div></a></li>
-                                    <li><a href="#"><div>Integración de apps</div></a></li>
-                                    <li><a href="#"><div>Internet of things</div></a></li>
-                                    <li><a href="#"><div>Data Management</div></a></li>
-                                    <li><a href="#"><div>Cloud & Mobile</div></a></li>
-                                    
-                                </ul>
-                            </li>
-                            <li ><a href="#"><div>Clientes</div></a></li>
-                            <li ><a href="#"><div>Stack Tecnológico</div></a></li>
-                            <li ><a href="#"><div>Contacto</div></a></li>
+        </section>
 
-                            
-                            
-                        </ul>
-
-						<!-- Top Search
-						============================================= -->
-						<div id="top-search">
-							<a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
-							<form action="search.html" method="get">
-								<input type="text" name="q" class="form-control" value="" placeholder="Busca algo...">
-							</form>
-						</div><!-- #top-search end -->
-
-					</nav><!-- #primary-menu end -->
-
-				</div>
-
-			</div>
-
-		</header><!-- #header end -->
-
-		<section id="slider" class="force-full-screen full-screen">
-
-			<div class="force-full-screen full-screen dark section nopadding nomargin noborder ohidden">
-
-				<div class="container clearfix">
-					<div class="slider-caption slider-caption-center">
-						<h2 data-animate="fadeInUp">Meltsan Solutions</h2>
-						<p data-animate="fadeInUp" data-delay="200">Procesos &amp; soluciones de TI que te ayudan a tomar decisiones inteligentes</p>
-						<a data-animate="fadeInUp" data-delay="400" href="#" class="button button-border button-light button-rounded button-large noleftmargin nobottommargin" style="margin-top: 30px;">Empezar con el desarrollo</a>
-						<!-- <a data-animate="fadeInUp" data-delay="600" href="#" class="button button-3d button-teal button-large nobottommargin" style="margin: 30px 0 0 10px;">Buy Now</a> -->
-					</div>
-				</div>
-				<div class="video-wrap">
-					<video poster="images/videos/explore-poster.jpg" preload="auto" loop autoplay muted>
-						<source src='images/videos/explore.mp4' type='video/mp4' />
-					</video>
-					<div class="video-overlay" style="background-color: rgba(0,0,0,0.45);"></div>
-				</div>
-
-			</div>
-
-		</section>
-
-		<!-- Page Sub Menu
+        <!-- Header
         ============================================= -->
-        <!-- <div id="page-menu" class="dots-menu">
+        <header id="header" class="full-header">
 
-            <div id="page-menu-wrap">
+            <div id="header-wrap">
 
                 <div class="container clearfix">
 
-                    <div class="menu-title">Explore <span>CANVAS</span></div>
+                    <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
 
-                    <nav class="one-page-menu no-offset">
-                        <ul>
-                            <li><a href="#" data-href="#slider"></a><div class="dots-menu-caption">Inicio</div></li>
-                            <li><a href="#" data-href="#nosotros"></a><div class="dots-menu-caption">Nosotros</div></li>
-                            <li><a href="#" data-href="#section-work"></a><div class="dots-menu-caption">Work</div></li>
-                            <li><a href="#" data-href="#section-services"></a><div class="dots-menu-caption">Services</div></li>
-                            <li><a href="#" data-href="#section-video"></a><div class="dots-menu-caption">Video</div></li>
-                            <li><a href="#" data-href="#section-testimonials"></a><div class="dots-menu-caption">Testimonials</div></li>
-                            <li><a href="#" data-href="#section-contact"></a><div class="dots-menu-caption">Contact</div></li>
+                    <!-- Logo
+                    ============================================= -->
+                    <div id="logo">
+                        <a href="index.html" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="Canvas Logo"></a>
+                        <a href="index.html" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Canvas Logo"></a>
+                    </div><!-- #logo end -->
+
+                    <!-- Primary Navigation
+                    ============================================= -->
+                    <nav id="primary-menu">
+
+                        <ul class="one-page-menu" data-easing="easeInOutExpo" data-speed="1500">
+                            <li><a href="#" data-href="#home"><div>Inicio</div></a></li>
+                            <li><a href="#" data-href="#section-about"><div>Acerca</div></a></li>
+                            <li><a href="#" data-href="#section-work"><div>Servicios</div></a></li>
+                            <li><a href="#" data-href="#section-team"><div>Productos</div></a></li>
+                            <li><a href="#" data-href="#section-services"><div>Modelos de entrega</div></a></li>
+                            <li><a href="#" data-href="#section-pricing"><div>Stack Tecnológico</div></a></li>
+                            <li><a href="#" data-href="#section-contact"><div>Contacto</div></a></li>
                         </ul>
-                    </nav>
 
-                <div id="page-submenu-trigger"><i class="icon-reorder"></i></div>
+                        <!-- Top Search
+                        ============================================= -->
+                        <div id="top-search">
+                            <a href="#" id="top-search-trigger"><i class="icon-search3"></i><i class="icon-line-cross"></i></a>
+                            <form action="search.html" method="get">
+                                <input type="text" name="q" class="form-control" value="" placeholder="Type &amp; Hit Enter..">
+                            </form>
+                        </div><!-- #top-search end -->
+
+                    </nav><!-- #primary-menu end -->
 
                 </div>
 
             </div>
 
-        </div> --><!-- #page-menu end -->
-
-		<!-- Content
-		============================================= -->
-
-		<section id="content">
-
-			<div class="content-wrap">
-
-				<div class="promo promo-light promo-full bottommargin-lg header-stick notopborder">
-					<div class="container clearfix">
-						<h3>Llámenos hoy al <span>+52 (55) 56.60.73.10</span> o Envíanos un email a <span>contacto@meltsan.com</span></h3>
-						<span>os esforzamos por ofrecer a nuestros clientes con la primera clase de apoyo para que su experiencia sea de mejor calidad.</span>
-						<a href="#" class="button button-dark button-xlarge button-rounded">Empezar</a>
-					</div>
-				</div>
-
-				<div class="container clearfix">
-
-					<div class="heading-block center" id="nosotros">
-						<h3>Acerca de <span>Nosotros</span></h3>
-						<span>Establecida en 2004, Meltsan Solutions proporciona productos y servicios de tecnología de gran variedad, incluyendo venta de equipo electrónico, de impresión, computo, consumibles, papeleria, licencias de software, así como servicios de consultoria en Tecnologías de la Información</span>
-					</div>
-
-					<div class="container clearfix">
-
-					<div class="col_one_fourth nobottommargin">
-						<div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
-							<center>
-								<img src="images/meltsan/organizacion.png" class="img-responsive"><br>
-							</center>
-							<h3>Organización<span class="subtitle">Start your Own Shop today</span></h3>
-						</div>
-					</div>
-
-					<div class="col_one_fourth nobottommargin">
-						<div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
-							<center>
-								<img src="images/meltsan/simplicidad.png" class="img-responsive"><br>
-							</center>
-							<h3>Simplicidad<span class="subtitle">Credit Cards &amp; PayPal Support</span></h3>
-						</div>
-					</div>
-
-					<div class="col_one_fourth nobottommargin">
-						<div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
-							<center>
-								<img src="images/meltsan/retroalimentacion.png" class="img-responsive"><br>
-							</center>
-							<h3>Retroalimentación<span class="subtitle">Realtime Email &amp; SMS Support</span></h3>
-						</div>
-					</div>
-
-					<div class="col_one_fourth nobottommargin col_last">
-						<div class="feature-box fbox-center fbox-light fbox-effect nobottomborder">
-							<center>
-								<img src="images/meltsan/metas.png" class="img-responsive"><br>
-							</center>
-							<h3>Metas realistas<span class="subtitle">Upto 50% Discounts</span></h3>
-						</div>
-					</div>
-				</div>
-			</section>
-			<section>
-				<div class="section nomargin noborder dark" style="padding: 80px 0; background-color:#103c4f;">
-					<div class="container center clearfix">
-
-						<div class="heading-block">
-							<h2>Modelos de contrato y entrega</h2>
-							<span>Meltsan Solutions, buscando adecuarse a las necesidades de nuestros clientes, ofrece como promesa de valor proporcionar el máximo beneficio y flexibilidad en los esquemas de trabajo que pueden ser seleccionados. A continuación se describen los esquemas bajo los cuales tra- bajamos, así como los beneficios y características que cada uno de ellos ofrece.</span>
-						</div>
-
-						<div class="container clearfix">
-
-					<div id="processTabs">
-						<ul class="process-steps bottommargin clearfix">
-							<li>
-								<a href="#ptab1" class="i-circled i-bordered i-alt divcenter">1</a>
-								<h5>Modelo de contrato de servicios</h5>
-							</li>
-							<li>
-								<a href="#ptab2" class="i-circled i-bordered i-alt divcenter">2</a>
-								<h5>Time & Materials</h5>
-							</li>
-							<li>
-								<a href="#ptab3" class="i-circled i-bordered i-alt divcenter">3</a>
-								<h5>Pool de Horas</h5>
-							</li>
-							<li>
-								<a href="#ptab4" class="i-circled i-bordered i-alt divcenter">4</a>
-								<h5>Esquema de entrega</h5>
-							</li>
-						</ul>
-						<div>
-							<div id="ptab1">
-								<h1>Fixed Price</h1>
-								<p>
-Este esquema es recomendado utilizar en proyectos donde ya se tiene generado un documento formal de requerimientos que proporcione la suficiente información para la generación de un documento de estimación y propuesta económica bajo un alcance delimitado desde un inicio. En el caso que no se cuente con un BRD (Business Requirement Definition) generado y firmado, se propone manejar el proyecto en dos fases.</p>
-
-							</div>
-
-							<div id="ptab2">
-								<p>Bajo este esquema se asignan los recursos al cliente de acuerdo a las necesidades detectadas y perfil solicitado, y el cliente se encarga de gestionar las actividades a realizar, así como dar un seguimiento al Plan de Trabajo asignado al colaborador.</p>
-							</div>
-							<div id="ptab3">
-								<p>Bajo este esquema el Cliente adquiere una bolsa de horas, seleccionando alguno de los perfiles existentes en Meltsan Solutions. Cabe mencionar que bajo este esquema, Meltsan Solutions realiza un análisis de las actividades a desarrollar, apoyando al cliente en la selección del perfil que le conviene seleccionar, así como confirmar en conjunto el mejor esquema contractual que le conviene seleccionar.</p>
-							</div>
-							<div id="ptab4">
-								<hr>
-								<div class="col-md-4">
-									<h1>ON SITE / OFF SITE</h1>
-								</div>
-								<div class="col-md-4">
-									<h1>Nearshore</h1>
-								</div>
-								<div class="col-md-4">
-									<h1>Software Factory</h1>
-								</div>
-								<hr>
-							</div>
-						</div>
-					</div>
-
-					<script>
-					  $(function() {
-						$( "#processTabs" ).tabs({ show: { effect: "fade", duration: 400 } });
-						$( ".tab-linker" ).click(function() {
-							$( "#processTabs" ).tabs("option", "active", $(this).attr('rel') - 1);
-							return false;
-						});
-					  });
-					</script>
-
-					
-
-				</div>
-
-					</div>
-				</div>
-			</section>
-
-			<section id="exitos">
-
-			<div class="content-wrap">
-
-                    <div class="heading-block center">
-						<h3>Nuestros <span>Éxitos</span></h3>
-						<span>Meltsan Solutions ha participado activamente con mas de 50 clientes, proporcionando valor agregado a sus procesos de negocio mediante el uso de soluciones tencológicas y generando relaciones de largo plazo como resultado de una trabaj en conjunto de calidad. <br>Entre las principales firmas con las cuales hemos trabajado se encuentran:</span>
-					</div>
-
-                    <ul class="clients-grid grid-6 bottommargin clearfix">
-                        <li><a href="#"><img src="images/meltsan/clientes/1.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/2.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/3.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/4.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/5.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/6.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/7.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/8.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/9.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/10.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/11.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/12.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/13.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/14.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/15.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/16.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/17.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/18.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/19.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/20.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/21.png" alt="Clients"></a></li>
-                        <li><a href="#"><img src="images/meltsan/clientes/22.png" alt="Clients"></a></li>
-                    </ul>
-
-				</div>
-
-			</div>
-		</section>
-
-		<section id="stacktecnologico">
-			<div class="section nomargin noborder dark" style="padding: 80px 0; background-color:#103c4f;">
-					<div class="container clearfix">
-			<!-- <div class="section parallax nomargin notopborder dark" style="background-color: #; padding: 100px 0;" data-stellar-background-ratio="0.3">
-					<div class="container clearfix"> -->
-
-						<div class="emphasis-title center">
-							<h2 style="font-size: 52px;color:#FFF;">Servicios</h2>
-						</div>
-
-						<div id="oc-fbox" class="owl-carousel fbox-carousel">
-
-						<div class="oc-item">
-							<div class="feature-box fbox-center fbox-border fbox-dark">
-								<div class="fbox-icon">
-									<img src="images/meltsan/servicios/desarrollo-de-apps.png" class="img-responsive" width="20px">
-								</div>
-								<h3 style="color:#FFF;">Desarrollo de aplicaciones móviles</h3>
-								<p style="color:#FFF;">Conocimiento del negocio + enfoque tecnológico</p>
-							</div>
-						</div>
-
-						<div class="oc-item">
-							<div class="feature-box fbox-center fbox-border fbox-dark">
-								<div class="fbox-icon">
-									<img src="images/meltsan/servicios/integracion.png" class="img-responsive" width="20px">
-								</div>
-								<h3 style="color:FFF;">Integración de aplicaciones</h3>
-								<p style="color:#FFF;">Arquitectura SOA, ESB y BPM</p>
-							</div>
-						</div>
-
-						<div class="oc-item">
-							<div class="feature-box fbox-center fbox-border fbox-dark">
-								<div class="fbox-icon">
-									<img src="images/meltsan/servicios/internet.png" class="img-responsive" width="20px">
-								</div>
-								<h3 style="color:#FFF;">Internet of things</h3>
-								<p style="color:#FFF;">La vida cotidiana en red</p>
-							</div>
-						</div>
-
-						<div class="oc-item">
-							<div class="feature-box fbox-center fbox-border fbox-dark">
-								<div class="fbox-icon">
-									<img src="images/meltsan/servicios/data.png" class="img-responsive" width="20px">
-								</div>
-								<h3 style="color:#FFF;">Data Management & Business Intelligence</h3>
-								<p style="color:#FFF;">¿La organización conoce a los clientes?</p>
-							</div>
-						</div>
-						<div class="oc-item">
-							<div class="feature-box fbox-center fbox-border fbox-dark">
-								<div class="fbox-icon">
-									<img src="images/meltsan/servicios/cloud.png" class="img-responsive" width="20px">
-								</div>
-								<h3 style="color:#FFF;">Cloud & Mobile Solutions</h3>
-								<p style="color:#FFF;">Intégrate en la nube</p>
-							</div>
-						</div>
-
-					</div>
-
-					<script type="text/javascript">
-
-						jQuery(document).ready(function($) {
-
-							var ocFbox = $("#oc-fbox");
-
-							ocFbox.owlCarousel({
-								margin: 40,
-								nav: true,
-								navText: ['<i class="icon-angle-left"></i>','<i class="icon-angle-right"></i>'],
-								autoplay: true,
-								autoplayHoverPause: true,
-								dots: false,
-								responsive:{
-									0:{ items:1 },
-									600:{ items:2 },
-									1000:{ items:3 }
-								}
-							});
-
-						});
-
-					</script>
-
-					</div>
-				</div>
-		</section>
-
-		<section>
-
-			<div class="container clearfix">
-
-					<div id="oc-clients" class="owl-carousel owl-carousel-full" style="padding: 20px 0;">
-
-						<div class="oc-item"><a href="#"><img src="images/meltsan/alianzas/1.png" alt="Clients"></a></div>
-						<div class="oc-item"><a href="#"><img src="images/meltsan/alianzas/2.png" alt="Clients"></a></div>
-						<div class="oc-item"><a href="#"><img src="images/meltsan/alianzas/3.png" alt="Clients"></a></div>
-						<div class="oc-item"><a href="#"><img src="images/meltsan/alianzas/4.png" alt="Clients"></a></div>
-						<div class="oc-item"><a href="#"><img src="images/meltsan/alianzas/2.png" alt="Clients"></a></div>
-						<div class="oc-item"><a href="#"><img src="images/meltsan/alianzas/3.png" alt="Clients"></a></div>
-						<div class="oc-item"><a href="#"><img src="images/meltsan/alianzas/4.png" alt="Clients"></a></div>
-
-					</div>
-
-					<script type="text/javascript">
-
-						jQuery(document).ready(function($) {
-
-							var ocClients = $("#oc-clients");
-
-							ocClients.owlCarousel({
-								margin: 30,
-								loop: true,
-								nav: false,
-								autoplay: true,
-								dots: false,
-								autoplayHoverPause: true,
-								responsive:{
-									0:{ items:2 },
-									480:{ items:3 },
-									768:{ items:4 },
-									992:{ items:5 },
-									1200:{ items:6 }
-								}
-							});
-
-						});
-
-					</script>
-
-				</div>
-
-				
-		</section>
-
-
-		<!-- Content
-		============================================= -->
-		<section id="">
-			<a class="button button-full center tright footer-stick">
-					<div class="container clearfix">
-						Solicita a un agente meltsan para una ayuda personalizada <strong>Siguiente</strong> <i class="icon-caret-right" style="top:4px;"></i>
-					</div>
-				</a>
-
-			<div class="content-wrap">
-
-				<div class="container clearfix">
-
-					<!-- Google Map
-					============================================= -->
-					<div class="col-md-6 bottommargin">
-
-						<section id="google-map" class="gmap" style="height: 240px;"></section>
-
-						<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-						<script type="text/javascript" src="js/jquery.gmap.js"></script>
-
-						<script type="text/javascript">
-
-							$('#google-map').gMap({
-
-								address: 'Melbourne, Australia',
-								maptype: 'ROADMAP',
-								zoom: 14,
-								markers: [
-									{
-										address: "Melbourne, Australia",
-										html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Hi, we\'re <span>Envato</span></h4><p class="nobottommargin">Our mission is to help people to <strong>earn</strong> and to <strong>learn</strong> online. We operate <strong>marketplaces</strong> where hundreds of thousands of people buy and sell digital goods every day, and a network of educational blogs where millions learn <strong>creative skills</strong>.</p></div>',
-										icon: {
-											image: "images/icons/map-icon-red.png",
-											iconsize: [32, 39],
-											iconanchor: [32,39]
-										}
-									}
-								],
-								doubleclickzoom: false,
-								controls: {
-									panControl: true,
-									zoomControl: true,
-									mapTypeControl: true,
-									scaleControl: false,
-									streetViewControl: false,
-									overviewMapControl: false
-								}
-
-							});
-
-						</script>
-
-					</div><!-- Google Map End -->
-
-					<div class="col-md-6">
-
-						<!-- Contact Info
-						============================================= -->
-						<div class="col_two_fifth">
-
-							<address>
-								<strong>Oficinas operativas:</strong><br>
-								Blvd. Adolfo López Mateos No. 36 Segundo Piso.<br>
-								Col. Alfonso XIII<br>  
-								C.P 01460 México, D.F<br>
-								Tel. +52 (55) 56.60.73.10
-							</address>
-
-							<address>
-								<strong>Oficinas EU:</strong><br>
-								9111 Jolyvill Road, Suite 100<br>
-								Austin, TX 78759<br>
-								Tel: +1 512 4313905
-							</address>
-
-						</div><!-- Contact Info End -->
-						<div class="col_two_fifth">
-
-							<address>
-								<strong>Oficinas comerciales:</strong><br>
-								Montecito No. 38 Piso 28 Oficina 12 y 13. Col. Nápoles<br>
-								C.P 03810 México, DF. <br>
-								Tel. +52 (55) 11.07.07.75<br>
-								Fax.  +52 (55) 11.07.07.64
-							</address>
-							<abbr title="Fax"><strong>Teléfono:</strong></abbr> +52 (55) 56.60.73.10<br>
-							<abbr title="Email Address"><strong>Correo Electrónico:</strong></abbr> contacto@meltsan.com
-
-						</div><!-- Contact Info End -->
-
-
-						<!-- Testimonials
-						============================================= -->
-						
-
-						<div class="clear"></div>
-
-						<!-- Modal Contact Form
-						============================================= -->
-						<a href="#" data-toggle="modal" data-target="#contactFormModal" class="button button-3d nomargin btn-block button-xlarge center">Da click y envianos un mensaje</a>
-
-						<div class="modal fade" id="contactFormModal" tabindex="-1" role="dialog" aria-labelledby="contactFormModalLabel" aria-hidden="true">
-							<div class="modal-dialog">
-								<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-										<h4 class="modal-title" id="contactFormModalLabel">Envianos un correo</h4>
-									</div>
-									<div class="modal-body">
-										<div id="contact-form-result" data-notify-type="success" data-notify-msg="<i class=icon-ok-sign></i> Mensaje enviado!"></div>
-										<form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/sendemail.php" method="post">
-
-											<div class="form-process"></div>
-
-											<div class="col_half">
-												<label for="template-contactform-name">Nombre <small>*</small></label>
-												<input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control required" />
-											</div>
-
-											<div class="col_half col_last">
-												<label for="template-contactform-email">Correo electrónico <small>*</small></label>
-												<input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control" />
-											</div>
-
-											<div class="clear"></div>
-
-											<div class="col_full">
-												<label for="template-contactform-phone">Teléfono</label>
-												<input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="sm-form-control" />
-											</div>
-
-
-											<div class="clear"></div>
-
-											<div class="col_full">
-												<label for="template-contactform-subject">Asunto <small>*</small></label>
-												<input type="text" id="template-contactform-subject" name="template-contactform-subject" value="" class="required sm-form-control" />
-											</div>
-
-											<div class="col_full">
-												<label for="template-contactform-message">Mensaje <small>*</small></label>
-												<textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30"></textarea>
-											</div>
-
-											<div class="col_full hidden">
-												<input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
-											</div>
-
-											<div class="col_full">
-												<button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Enviar mensaje</button>
-											</div>
-
-										</form>
-
-										<script type="text/javascript">
-											$("#template-contactform").validate({
-												submitHandler: function(form) {
-													$('.form-process').fadeIn();
-													$(form).ajaxSubmit({
-														target: '#contact-form-result',
-														success: function() {
-															$('.form-process').fadeOut();
-															$('#template-contactform').find('.sm-form-control').val('');
-															$('#contact-form-result').attr('data-notify-msg', $('#contact-form-result').html()).html('');
-															SEMICOLON.widget.notifications($('#contact-form-result'));
-														}
-													});
-												}
-											});
-										</script>
-
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-									</div>
-								</div><!-- /.modal-content -->
-							</div><!-- /.modal-dialog -->
-						</div><!-- /.modal -->
-						<!-- Modal Contact Form End -->
-
-					</div>
-					<div class="clear"></div>
+        </header><!-- #header end -->
+
+        <div class="clear"></div>
+
+        <!-- Content
+        ============================================= -->
+        <section id="content">
+
+            <div class="content-wrap">
+
+                <section id="section-about" class="page-section">
+
+                    <div class="container clearfix">
+
+                        <div class="col_full">
+
+                            <div class="heading-block center nobottomborder">
+                                <h2>Acerca de <span>Meltsan</span></h2>
+                                <span>Somos una empresa enfocada a agregar valor a los procesos de negocio de las organizaciones a través de soluciones de TI.</span>
+                            </div>
+
+                            <div class="fslider" data-pagi="false" data-animation="fade">
+                                <div class="flexslider">
+                                    <div class="slider-wrap">
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b1.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b2.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b3.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b4.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b5.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b6.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b7.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b8.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b9.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b10.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b11.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b12.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b13.png" alt="About Image"></a></div>
+                                        <div class="slide"><a href="#"><img src="images/meltsan/nosotros/b14.png" alt="About Image"></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <div class="clear"></div>
+
+                    </div>
+
+                </section>
+
+                <div class="promo promo-light bottommargin">
+                        <h3>Llámenos hoy al <span>+91.22.57412541</span>  o Envíanos un email a <span>support@meltsan.com</span></h3>
+                        <span>Nos esforzamos por ofrecer a nuestros clientes con la primera clase de apoyo para que su experiencia sea de mejor calidad.</span>
+                        <a href="#" class="button button-xlarge button-rounded">Empezar ahora</a>
+                    </div>
+
+            <section id="content">
+
+             <div class="content-wrap" style="padding-bottom:0px;">
+
+                <div class="row common-height clearfix">
+
+                    <div class="col-sm-5 col-padding" style="background: url('images/meltsan/nosotros/a2.png') center center no-repeat; background-size: cover;"></div>
+
+                    <div class="col-sm-7 col-padding">
+                        <div>
+                            <div class="heading-block">
+                                <span class="before-heading color">Dirección &amp; General</span>
+                                <h3>Orlando Antonio Camiro Ramirez</h3>
+                            </div>
+
+                            <div class="row clearfix">
+
+                                <div class="col-md-6">
+                                    <p>Encargado general de empesa meltsa de sus operaciones y mas. orlando.camiro@meltsan.com</p>
+                                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                        <i class="icon-facebook"></i>
+                                        <i class="icon-facebook"></i>
+                                    </a>
+                                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                        <i class="icon-twitter"></i>
+                                        <i class="icon-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                        <i class="icon-gplus"></i>
+                                        <i class="icon-gplus"></i>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <ul class="skills">
+                                        <li data-percent="80">
+                                            <span>Autoconocimiento</span>
+                                            <div class="progress">
+                                                <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="80" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
+                                            </div>
+                                        </li>
+                                        <li data-percent="95">
+                                            <span>Visión y pensamiento estratégico</span>
+                                            <div class="progress">
+                                                <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="95" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
+                                            </div>
+                                        </li>
+                                        <li data-percent="90">
+                                            <span>Conocimiento del negocio</span>
+                                            <div class="progress">
+                                                <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="90" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
+                                            </div>
+                                        </li>
+                                        <li data-percent="70">
+                                            <span>Habilidades negociadoras</span>
+                                            <div class="progress">
+                                                <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="70" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row common-height bottommargin-lg clearfix">
+
+                    <div class="col-sm-7 col-padding">
+                        <div>
+                            <div class="heading-block">
+                                <span class="before-heading color">Dirección  &amp;  Comercial</span>
+                                <h3>Luis Enrique Salgado Camacho</h3>
+                            </div>
+
+                            <div class="row clearfix">
+
+                                <div class="col-md-6">
+                                    <p>Desarrollo comercial y ventas equipo meltsan.  luis.salgado@meltsan.com</p>
+                                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
+                                        <i class="icon-facebook"></i>
+                                        <i class="icon-facebook"></i>
+                                    </a>
+                                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
+                                        <i class="icon-twitter"></i>
+                                        <i class="icon-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
+                                        <i class="icon-gplus"></i>
+                                        <i class="icon-gplus"></i>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <ul class="skills">
+                                        <li data-percent="80">
+                                            <span>Gestión de proyectos</span>
+                                            <div class="progress">
+                                                <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="80" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
+                                            </div>
+                                        </li>
+                                        <li data-percent="60">
+                                            <span>Gestión técnica</span>
+                                            <div class="progress">
+                                                <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="60" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
+                                            </div>
+                                        </li>
+                                        <li data-percent="90">
+                                            <span>Programación</span>
+                                            <div class="progress">
+                                                <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="90" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
+                                            </div>
+                                        </li>
+                                        <li data-percent="70">
+                                            <span>Liderazgo</span>
+                                            <div class="progress">
+                                                <div class="progress-percent"><div class="counter counter-inherit counter-instant"><span data-from="0" data-to="70" data-refresh-interval="30" data-speed="1100"></span>%</div></div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5 col-padding" style="background: url('images/meltsan/nosotros/a1.png') center center no-repeat; background-size: cover;"></div>
+                </div>
+            </div>
+            </section>
+                <section id="section-work" class="page-section section parallax dark" style="background-image: url('images/meltsan-img/parallax3.jpg'); padding: 50px 0;" data-stellar-background-ratio="0.3">
+
+                    <div class="container clearfix">
+                        
+                        <div class="heading-block center bottommargin-lg">
+                            <h2>Servicios</h2>
+                            <!-- <span>List of some features included in Canvas.</span> -->
+                        </div>
+
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
+                                <div class="fbox-icon">
+                                    <a href="#"><img src="images/meltsan-img/servicio1.png" class="responsive-img" width="50%"></i></a>
+                                </div>
+                                <h3>Desarrollo de aplicaciones</h3>
+                                <p style="color:white;">•    Desarrollos acelerados<br>
+•    Desarrollo de soluciones e-business<br>
+•    Aplicaciones empresariales<br>
+•    Nos apegamos a modelos de desarrollo de software agiles</p>
+                            </div>
+                        </div>
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
+                                <div class="fbox-icon">
+                                    <a href="#"><img src="images/meltsan-img/servicio2.png" class="responsive-img" width="50%"></i></a>
+                                </div>
+                                <h3>Integración de aplicaciones</h3>
+                                <p style="color:white;">Meltsan solutions integra aplicaciones basadas en distintas plataformas operativas y aplicativas, haciendo uso de middlewares orientados a intercambio de mensajes y herramientas de flujo de trabajo. Conocemos y somos expertos en varias tecnologías de integración.</p>
+                            </div>
+                        </div>
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
+                                <div class="fbox-icon">
+                                    <a href="#"><img src="images/meltsan-img/servicio3.png" class="responsive-img" width="50%"></i></a>
+                                </div>
+                                <h3>Internet of Things (IoT)</h3>
+                                <p style="color:white;">
+•    Proximity marketing<br>
+•    iBeacons<br>
+•    Home Automation<br>
+•    Real world context apps<br>
+•    Indoor location apps<br>
+•    Ux – user experience<br>
+•    Estrategias de marketing digital</p>
+                            </div>
+                        </div>
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
+                                <div class="fbox-icon">
+                                    <a href="#"><img src="images/meltsan-img/servicio4.png" class="responsive-img" width="50%"></i></a>
+                                </div>
+                                <h3>Data management & Business intelligence</h3>
+                                <p style="color:white;">Estudiamos cada elemento almacenado en las bases de datos Operativas con la finalidad de generar valor en cada dato para poder proyectar nuevos negocios, conocimiento del cliente, incremento de ventas, tendencias comerciales y toma de decisiones. Todo un enfoque a generar una mejor experiencia cliente final.</p>
+                            </div>
+                        </div>
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
+                                <div class="fbox-icon">
+                                    <a href="#"><img src="images/meltsan-img/servicio5.png" class="responsive-img" width="50%"></i></a>
+                                </div>
+                                <h3>Cloud & Mobile solutions</h3>
+                                <p style="color:white;"> •    Aplicaciones móviles iOS, Android y Windows pone.(nativas y cross platform)<br>
+•    Uso de servicios en la nube<br>
+•    Integración certificada de paypal</p>
+                            </div>
+                        </div>
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
+                                <div class="fbox-icon">
+                                    <a href="#"><img src="images/meltsan-img/servicio6.png" class="responsive-img" width="50%"></i></a>
+                                </div>
+                                <h3>Quality assurance</h3>
+                                <p style="color:white;">Se cuenta con un área de aseguramiento de la calidad del producto terminado. Meltsan solutions tiene su propio modelo de servicio para la disciplina de “software testing”, lo que garantiza el cumplimiento de aceptación por parte del cliente</p>
+                            </div>
+                        </div>
+
+                </section>
+
+                <section id="section-team" class="page-section section parallax dark" style="background-image: url('images/meltsan-img/parallax2.jpg'); padding: 50px 0;" data-stellar-background-ratio="0.3">
+
+                    <div class="container clearfix">
+                        <div class="heading-block center bottommargin-lg">
+                            <h2>Productos</h2>
+                            <!-- <span>List of some features included in Canvas.</span> -->
+                        </div>
+
+                    
+
+                        <div class="col_one_third" >
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
+                                <img src="images/meltsan-img/producto1.png" class="responsive-img" width="80%">
+                                <h3 style="color:white;">Antimoney Laundering</h3>
+                                <p style="color:white;">Provee una solución para cumplir con las disposiciones actuales de las legislaciones de varias industrias/ sectores en materia de prevención de lavado de dinero, particularmente, en lo referente a contar con un sistema automatizado para la detección y administración de operaciones sospechosas.</p>
+                            </div>
+                        </div>
+
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
+                                <img src="images/meltsan-img/producto2.png" class="responsive-img" width="80%">
+                                <h3 style="color:white;">Sistema Flex Beneficios</h3>
+                                <p style="color:white;">Uno de los valores más importantes en la vida es la familia, por lo que debemos de contar con un programa de protección adecuado tanto en sustento como en integridad física.</p>
+                            </div>
+                        </div>
+
+                        <div class="col_one_third">
+                            <div class="feature-box fbox-center fbox-effect nobottomborder" data-animate="fadeIn">
+                                <img src="images/meltsan-img/producto1.png" class="responsive-img" width="80%">
+                                <h3 style="color:white;">Staffing</h3>
+                                <p style="color:white;">En el área de servicios de consultoría, se tiene un grupo de expertos en diferentes tecnologías y se cuenta el siguiente catálogo de perfiles: Desarrollador Jr, Desarrollador SR, Software Architect, Testers, Dcumentadores, Project Leader, Business Analyst, Perfiles BI (ETLs, Data mining) y PMS</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+<section>
+                <div id="section-services" class="center page-section">
+                <div class="section nomargin noborder dark" style="padding: 80px 0;">
+                    <div class="container center clearfix">
+
+                        <div class="heading-block">
+                            <h2>Modelos de contrato y entrega</h2>
+                            <span>Meltsan Solutions, buscando adecuarse a las necesidades de nuestros clientes, ofrece como promesa de valor proporcionar el máximo beneficio y flexibilidad en los esquemas de trabajo que pueden ser seleccionados. A continuación se describen los esquemas bajo los cuales tra- bajamos, así como los beneficios y características que cada uno de ellos ofrece.</span>
+                        </div>
+                        </div>
+
+                        <div class="container clearfix">
+
+                    <div id="processTabs">
+                        <ul class="process-steps bottommargin clearfix">
+                            <li>
+                                <a href="#ptab1" class="i-circled i-bordered i-alt divcenter">1</a>
+                                <h5>On-site / off-site</h5>
+                            </li>
+                            <li>
+                                <a href="#ptab2" class="i-circled i-bordered i-alt divcenter">2</a>
+                                <h5>Software Factory</h5>
+                            </li>
+                            <li>
+                                <a href="#ptab3" class="i-circled i-bordered i-alt divcenter">3</a>
+                                <h5>Nearshore</h5>
+                            </li>
+                            <li>
+                                <a href="#ptab4" class="i-circled i-bordered i-alt divcenter">4</a>
+                                <h5>Beneficios generales</h5>
+                            </li>
+                        </ul>
+                        <div>
+                            <div id="ptab1">
+                                   <div class="col-xs-6 col-md-3">
+                            
+                              <img alt="100%x180" src="images/extras/on-site-off.png" style="width: 100%; display: block;">
+                            </a>
+                          </div>
+                                <p>
+Cuando se trata de una asignación on site, un equipo de meltsan se integra en las instalaciones del cliente y trabaja en colaboración con los contactos establecidos por el cliente para el logro de los objetivos comunes. En el caso de un esquema off site, las responsabilidades son similares a las de un esquema on site, pero el equipo desarrolla las actividades fuera de las instalaciones del cliente.</p>
+
+                            </div>
+
+                            <div id="ptab2">
+                                    <div class="col-xs-6 col-md-3">
+                            
+                              <img alt="100%x180" src="images/extras/factory.png" style="width: 100%; display: block;">
+                            </a>
+                          </div>
+                                <p>En el caso de un esquema de Software Factory, Meltsan Solutions proporciona los ambientes para Desarrollo e Integración, absorbiendo los costos de licenciamiento y hardware que implican generar el entorno de trabajo. *
+Meltsan Solutions publica en un dominio específico de Internet la aplicación para que el cliente realice sus pruebas de Integración (E2E) de forma previa a las pruebas de UAT (User Acceptance Tes) y salida a producción. Esto con la finalidad de realizar revisiones periódicas y efectuar un seguimiento de los avances de forma detallada.
+Adicionalmente, podemos ofrecer la habilitación de una VPN (red privada) para cubrir aspectos de estar en un entorno de red de forma segura, protegiendo de cualquier eventualidad la integridad de la información de nuestros clientes. Los  recursos se encontrarán físicamente en las instalaciones de Meltsan Solutions.
+Otra  de las ventajas de trabajar bajo un esquema de este tipo, es la disponibilidad de software de control que ofrece Meltsan Solutions durante el proceso de desarrollo.</p>
+                            </div>
+                            <div id="ptab3">
+                                    <div class="col-xs-6 col-md-3">
+                            
+                              <img alt="100%x180" src="images/extras/nearshore.png" style="width: 100%; display: block;">
+                            </a>
+                          </div>
+                                <p>Se asigna un equipo con perfiles especializados en el negocio y tecnologías en la misma ciudad del cliente, los cuales se encargan de la toma efectiva de requerimientos, así como del seguimiento del proyecto mediante sesiones de trabajo cara a cara con cl cliente, siendo el enlace principal con el equipo de desarrollo para la efectiva comunicación e implementación del proyecto. Aquí cabe mencionar, que sólo perfiles estratégicos son los que se encuentra trabajando de forma directa con el cliente. Por otro lado, el equipo de desarrollo, QA y perfiles complementarios, se encontrarán implementando el proyecto fuera de las oficinas del cliente en un lugar geográfico con el cual se coincide en el uso horario, proporcionando los mejores tiempos de respuesta.</p>
+                            </div>
+                            <div id="ptab4">
+                                    <div class="col-xs-6 col-md-3">
+                            
+                              <img alt="100%x180" src="images/extras/beneficios.png" style="width: 100%; display: block;">
+                            </a>
+                          </div>
+                                <hr>
+                                <div class="col-md-4">
+                                    <h4>Costos de operaciones bajos</h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>Disponibilidad de equipos expertos</h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>Comunicacion en tiempo real</h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4>Facilidad de viajar a sitio</h4>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                      $(function() {
+                        $( "#processTabs" ).tabs({ show: { effect: "fade", duration: 400 } });
+                        $( ".tab-linker" ).click(function() {
+                            $( "#processTabs" ).tabs("option", "active", $(this).attr('rel') - 1);
+                            return false;
+                        });
+                      });
+                    </script>
+
+                </div>
+
+                    </div>
+                </div>
+            </section>
+<div id="section-pricing" class="center page-section">
+            <div class="container center clearfix" style:"margin: 0 auto;">
+
+                        <div class="heading-block" style="padding-top:8%;">
+                            <h2>Stack Tecnologico</h2>
+                            
+                        </div>
+<div data-big="3" data-lightbox="gallery">
+                        <a href="images/videos/servidores-de-aplicacion.png" data-lightbox="gallery-item" class="button button-3d button-xlarge button-rounded button-purple">Servidores de aplicacion</a>
+                        <a href="images/videos/explore.mp4" data-lightbox="gallery-item" class="button button-3d button-xlarge button-rounded button-dirtygreen">SOA</a>
+                        <a href="images/videos/lenguajes-de-programacion.png" data-lightbox="gallery-item" class="button button-3d button-xlarge button-rounded button-amber">Lenguajes de programacion</a>
+                        <a href="images/videos/tools.png" data-lightbox="gallery-item" class="button button-3d button-xlarge button-rounded button-black">tools and frameworks</a>
+                        <a href="images/videos/DB.png" data-lightbox="gallery-item" class="button button-3d button-xlarge button-rounded button-white button-light">DB</a>
+                    <a href="images/videos/LLL.png" data-lightbox="gallery-item" class="button button-3d button-xlarge button-rounded button-white button-light">Cloud and payement</a>
+                <a href="images/videos/MMM.png" data-lightbox="gallery-item" class="button button-3d button-xlarge button-rounded button-white button-light">Marcos de referencia</a></div></div>
+
+                <div class="divider divider-center"><i class="icon-email2"></i></div>
+            <!-- Content
+        ============================================= -->
+        <section id="content">
+
+            <div class="content-wrap nobottompadding">
+
+                <div class="container clearfix">
+
+                    <div class="container center clearfix">
+
+                        <div class="heading-block">
+                            <h2>Casos de éxito</h2>
+                            
+                        </div>
+                    </div>
+
+                    <!-- Portfolio Filter
+                    ============================================= -->
+                    <div style="margin: 0 auto;width: 40%;">
+                        <ul id="portfolio-filter" class="clearfix">
+
+                            
+                            <li><a href="" onclick="myFunction()" data-filter=".pf-icons">Servicios</a></li>
+                            <li><a href="" onclick="myFunction()" data-filter=".pf-illustrations">Financieros</a></li>
+                            <li><a href="" onclick="myFunction()" data-filter=".pf-uielements">Salud</a></li>
+                            <li><a href="" onclick="myFunction()" data-filter=".pf-media2">Seguros</a></li>
+                            <li><a href="" onclick="myFunction()" data-filter=".pf-graphics">Gobierno</a></li>
+
+                        </ul><!-- #portfolio-filter end -->
+                    </div>
+
+
+                    <div class="clear"></div>
+
+                </div>
+
+                <!-- Portfolio Items
+                ============================================= -->
+                <div id="portfolio" class="portfolio-6 clearfix" style="display:none;">
+
+                    <article class="portfolio-item pf-media pf-icons">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/a1.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-icons">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/a2.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-icons">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/a3.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-icons">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/a4.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-icons">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/a5.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-illustrations">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/b1.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-illustrations">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/b2.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-illustrations">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/b3.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-uielements">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/c1.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-uielements">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/c2.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-media2">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/d1.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-media2">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/d2.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-media2">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/d3.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-media2">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/d4.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-media2">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/d5.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-media2">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/d6.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-media2">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/d7.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-media2">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/d8.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-media2">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/d9.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-graphics">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/e1.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-graphics">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/e2.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-item pf-media pf-graphics">
+                        <div class="portfolio-image">
+                            <a href="">
+                                <img src="images/meltsan/clientes/e3.png" alt="Open Imagination">
+                            </a>
+                        </div>
+                    </article>
+
+                </div><!-- #portfolio end -->
+
+                <!-- Portfolio Script
+                ============================================= -->
+                <script type="text/javascript">
+
+                    jQuery(window).load(function(){
+
+                        var $container = $('#portfolio');
+
+                        $container.isotope({ transitionDuration: '0.65s' });
+
+                        $('#portfolio-filter a').click(function(){
+                            $('#portfolio-filter li').removeClass('activeFilter');
+                            $(this).parent('li').addClass('activeFilter');
+                            var selector = $(this).attr('data-filter');
+                            $container.isotope({ filter: selector });
+                            return false;
+                        });
+
+                        $('#portfolio-shuffle').click(function(){
+                            $container.isotope('updateSortData').isotope({
+                                sortBy: 'random'
+                            });
+                        });
+
+                        $(window).resize(function() {
+                            $container.isotope('layout');
+                        });
+
+                        $container.infinitescroll({
+                            loading: {
+                                finishedMsg: '<i class="icon-line-check"></i>',
+                                msgText: '<i class="icon-line-loader icon-spin"></i>',
+                                img: "images/preloader-dark.gif",
+                                speed: 'normal'
+                            },
+                            state: {
+                                isDone: false
+                            },
+                            nextSelector: "#load-next-posts a",
+                            navSelector: "#load-next-posts",
+                            itemSelector: "article.portfolio-item",
+                            behavior: 'portfolioinfiniteitemsloader'
+                        },
+                        function( newElements ) {
+                            $container.isotope( 'appended', $( newElements ) );
+                            var t = setTimeout( function(){ $container.isotope('layout'); }, 2000 );
+                            SEMICOLON.widget.loadFlexSlider();
+                            SEMICOLON.portfolio.arrange();
+                        });
+
+                    });
+
+                </script><!-- Portfolio Script End -->
+
+            </div>
+
+        </section><!-- #content end -->
+
+        <!-- Content
+        ============================================= -->
+        <section id="section-contact" class="center page-section">
+
+            <div class="content-wrap" >
+
+                <div class="container clearfix">
+
+                    <!-- Google Map
+                    ============================================= -->
+                    <div class="col-md-6 bottommargin">
+
+                        <section id="google-map" class="gmap" style="height: 240px;"></section>
+
+                        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+                        <script type="text/javascript" src="js/jquery.gmap.js"></script>
+
+                        <script type="text/javascript">
+
+                            $('#google-map').gMap({
+
+                                address: 'Blvd. Adolfo López Mateos No. 36 Segundo Piso. Col. Alfonso XIII C.P 01460 México, D.F',
+                                maptype: 'ROADMAP',
+                                zoom: 14,
+                                markers: [
+                                    {
+                                        address: "Blvd. Adolfo López Mateos No. 36 Segundo Piso. Col. Alfonso XIII C.P 01460 México, D.F",
+                                        html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Aquí es <span>Meltsan</span></h4><p class="nobottommargin"></p></div>',
+                                        icon: {
+                                            image: "images/icons/map-icon-red.png",
+                                            iconsize: [32, 39],
+                                            iconanchor: [32,39]
+                                        }
+                                    }
+                                ],
+                                doubleclickzoom: false,
+                                controls: {
+                                    panControl: true,
+                                    zoomControl: true,
+                                    mapTypeControl: true,
+                                    scaleControl: false,
+                                    streetViewControl: false,
+                                    overviewMapControl: false
+                                }
+
+                            });
+
+                        </script>
+
+                    </div><!-- Google Map End -->
+
+                    <div class="col-md-6">
+
+                        <!-- Contact Info
+                        ============================================= -->
+                        <div class="col_two_fifth">
+
+                            <address>
+                                <strong>Oficinas operativas:</strong><br>
+                                Blvd. Adolfo López Mateos No. 36 Segundo Piso.<br>
+                                Col. Alfonso XIII<br>  
+                                C.P 01460 México, D.F<br>
+                                Tel. +52 (55) 56.60.73.10
+                            </address>
+
+                            <address>
+                                <strong>Oficinas EU:</strong><br>
+                                9111 Jolyvill Road, Suite 100<br>
+                                Austin, TX 78759<br>
+                                Tel: +1 512 4313905
+                            </address>
+
+                        </div><!-- Contact Info End -->
+                        <div class="col_two_fifth">
+
+                            <address>
+                                <strong>Oficinas comerciales:</strong><br>
+                                Montecito No. 38 Piso 28 Oficina 12 y 13. Col. Nápoles<br>
+                                C.P 03810 México, DF. <br>
+                                Tel. +52 (55) 11.07.07.75<br>
+                                Fax.  +52 (55) 11.07.07.64
+                            </address>
+                            <abbr title="Fax"><strong>Teléfono:</strong></abbr> +52 (55) 56.60.73.10<br>
+                            <abbr title="Email Address"><strong>Correo Electrónico:</strong></abbr> contacto@meltsan.com
+
+                        </div><!-- Contact Info End -->
+
+
+                        <!-- Testimonials
+                        ============================================= -->
+                        
+
+                        <div class="clear"></div>
+
+                        <!-- Modal Contact Form
+                        ============================================= -->
+                        <a href="#" data-toggle="modal" data-target="#contactFormModal" class="button button-3d nomargin btn-block button-xlarge center">Envianos un mensaje</a>
+
+                        <div class="modal fade" id="contactFormModal" tabindex="-1" role="dialog" aria-labelledby="contactFormModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                        <h4 class="modal-title" id="contactFormModalLabel">Envianos un correo</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div id="contact-form-result" data-notify-type="success" data-notify-msg="<i class=icon-ok-sign></i> Mensaje enviado!"></div>
+                                        <form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/sendemail.php" method="post">
+
+                                            <div class="form-process"></div>
+
+                                            <div class="col_half">
+                                                <label for="template-contactform-name">Nombre <small>*</small></label>
+                                                <input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control required" />
+                                            </div>
+
+                                            <div class="col_half col_last">
+                                                <label for="template-contactform-email">Correo electrónico <small>*</small></label>
+                                                <input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control" />
+                                            </div>
+
+                                            <div class="clear"></div>
+
+                                            <div class="col_full">
+                                                <label for="template-contactform-phone">Teléfono</label>
+                                                <input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="sm-form-control" />
+                                            </div>
+
+
+                                            <div class="clear"></div>
+
+                                            <div class="col_full">
+                                                <label for="template-contactform-subject">Asunto <small>*</small></label>
+                                                <input type="text" id="template-contactform-subject" name="template-contactform-subject" value="" class="required sm-form-control" />
+                                            </div>
+
+                                            <div class="col_full">
+                                                <label for="template-contactform-message">Mensaje <small>*</small></label>
+                                                <textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30"></textarea>
+                                            </div>
+
+                                            <div class="col_full hidden">
+                                                <input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
+                                            </div>
+
+                                            <div class="col_full">
+                                                <button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Enviar mensaje</button>
+                                            </div>
+
+                                        </form>
+
+                                        <script type="text/javascript">
+                                            $("#template-contactform").validate({
+                                                submitHandler: function(form) {
+                                                    $('.form-process').fadeIn();
+                                                    $(form).ajaxSubmit({
+                                                        target: '#contact-form-result',
+                                                        success: function() {
+                                                            $('.form-process').fadeOut();
+                                                            $('#template-contactform').find('.sm-form-control').val('');
+                                                            $('#contact-form-result').attr('data-notify-msg', $('#contact-form-result').html()).html('');
+                                                            SEMICOLON.widget.notifications($('#contact-form-result'));
+                                                        }
+                                                    });
+                                                }
+                                            });
+                                        </script>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+                        <!-- Modal Contact Form End -->
+
+                    </div>
+                    <div class="clear"></div>
 
                     <!-- Contact Info
                     ============================================= -->
@@ -694,13 +1095,13 @@ Este esquema es recomendado utilizar en proyectos donde ya se tiene generado un 
 
                     </div><!-- Contact Info End -->
 
-				</div>
-			</div>
+                </div>
+            </div>
 
-		</section><!-- #content end -->
+        </section><!-- #content end -->
 
 
-		<!-- Footer
+        <!-- Footer
         ============================================= -->
         <footer id="footer" class="dark" style="background-color: url('images/footer-bg.jpg') repeat fixed; background-size: 100% 100%;">
 
@@ -726,7 +1127,7 @@ Este esquema es recomendado utilizar en proyectos donde ya se tiene generado un 
                                     <div class="hidden-xs hidden-sm"><div class="clear" style="padding-top: 10px;"></div></div>
 
                                     <div class="col-md-6 bottommargin-sm center">
-                                        <div class="counter counter-small" style="color: #cf8400;"><span data-from="0" data-to="2" data-refresh-interval="80" data-speed="3000" data-comma="true"></span></div>
+                                        <div class="counter counter-small" style="color: #f37c20;"><span data-from="0" data-to="2" data-refresh-interval="80" data-speed="3000" data-comma="true"></span></div>
                                         <h5 class="nobottommargin">paises</h5>
                                     </div>
 
@@ -830,15 +1231,20 @@ Este esquema es recomendado utilizar en proyectos donde ya se tiene generado un 
 
         </footer><!-- #footer end -->
 
-	</div><!-- #wrapper end -->
+    </div><!-- #wrapper end -->
 
-	<!-- Go To Top
-	============================================= -->
-	<div id="gotoTop" class="icon-angle-up"></div>
+    <!-- Go To Top
+    ============================================= -->
+    <div id="gotoTop" class="icon-angle-up"></div>
 
-	<!-- Footer Scripts
-	============================================= -->
-	<script type="text/javascript" src="js/functions.js"></script>
+    <!-- Footer Scripts
+    ============================================= -->
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script>
+        function myFunction() {
+            document.getElementById('portfolio').style.display = 'block';
+        }
+    </script>
 
 </body>
 </html>
